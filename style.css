@@ -1,34 +1,67 @@
-body {
-    background-color: hsl(217, 54%, 11%);
+:root {
+    --mainBG: hsl(217, 54%, 11%);
+    --cardBG: hsl(216, 50%, 16%);
+    --line: hsl(215, 32%, 27%);
+    --SoftBlue: hsl(215, 51%, 70%);
+    --cyan: hsl(178, 100%, 50%);
+    --white: hsl(0, 0%, 100%);
+}
+
+html, body {
+    height: 100%;
     font-family: Outfit;
 }
 
-.card-container {
+body {
     display: flex;
-    flex-direction: column;
-    max-width:250px;
     justify-content: center;
-    background: hsl(216, 50%, 16%);
-    border-radius: 15px;
-    padding: 1% 1% 1% 1%;
+    align-items: center;
+    background-color: hsl(217, 54%, 11%);
 }
+
+.card-container {
+    box-sizing: content-box;
+    margin: auto;
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;
+    */
+    max-width: 20%;
+    height: auto;
+    background: var(--cardBG);
+    border-radius: 15px;
+    padding: 1.3rem 1.3rem 1.3rem 1.3rem;
+}
+@media (min-width:325px) {
+    .card-container {
+        min-width: 80%;
+    }
+}
+
 .card-img {
-    border-radius: 10px;
+    height: auto;
+    width: 100%;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
 h3 {
-    text-align: left;
     color: white;
+    padding-top: 1.2rem;
+    margin: 0;
 }
 
 .nft-description-text {
     font-size: 18px;
-    font-weight: 400;
-    color: hsl(215, 51%, 70%);
+    font-weight: 300;
+    color: var(--SoftBlue);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0;
 }
 
 .price-time-container{
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -36,24 +69,21 @@ h3 {
 .icons{
     height: 18px;
     align-self: center;
-    margin-right: 5px;
+    margin-right: 0.3rem;
 }
 
 .time-container{
     display: inline-flex;
-    flex-direction: row;
     justify-content: end;
 }
 .time-container p {
     align-self: center;
-    font-size: 14px;
     font-weight: 300;
     color: hsl(215, 51%, 70%);
 }
 
 .price-container{
-    display: inline-flex;
-    flex-direction: row;
+    display: flex;
     justify-content: start;
 }
 .price-container p {
@@ -63,18 +93,20 @@ h3 {
 
 hr {
     width: 100%;
-    border: 1px solid hsl(215, 51%, 70%);
+    border: 1px solid var(--line);
+    border-radius: 10px;
 }
 
 .credits {
-    display: inline-flex;
-    flex-direction: row;
+    display: flex;
+    align-items: flex-end;
 }
 .credits img {
     border: 1px solid white;
     border-radius: 50%;
-    max-height: 35px;
-    max-width: 35px;
+    max-height: 30px;
+    max-width: 30px;
+    align-self: center;
 }
 .credits p {
     align-self: center;
@@ -83,10 +115,25 @@ hr {
     color: hsl(215, 51%, 70%);
     margin-left: 10px;
 }
-.credits p span {
+.credits > p > span {
     color: white;
     font-weight: 400;
 }
 
-.attribution { font-size: 11px; text-align: center; }
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+}
+
+.attribution { 
+    font-size: 11px;
+    text-align: center;
+    color: white;
+}
 .attribution a { color: hsl(228, 45%, 44%); }
