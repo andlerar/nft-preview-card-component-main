@@ -8,48 +8,70 @@
 }
 
 html, body {
-    height: 100%;
     font-family: Outfit;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: hsl(217, 54%, 11%);
 }
 
 .card-container {
     box-sizing: content-box;
-    margin: auto;
-    /*display: flex;
+    margin: 10% auto;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    */
-    max-width: 20%;
-    height: auto;
+    max-width: 25%;
     background: var(--cardBG);
+    box-shadow: 0px 2px 15px 5px hsl(216deg 52% 8%);
     border-radius: 15px;
-    padding: 1.3rem 1.3rem 1.3rem 1.3rem;
+    padding: 1.3rem 1.3rem;
 }
-@media (min-width:325px) {
-    .card-container {
-        min-width: 80%;
-    }
+.img-container {
+    position: relative;
+    width: 100%;
 }
-
 .card-img {
     height: auto;
     width: 100%;
-    border-radius: 5px;
     object-fit: cover;
+    border-radius: 10px;
+}
+.img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: .5s;
+    background-color: rgba(0, 255, 247, 0.5); /* --cyan with opacity*/
+    opacity: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.img-container:hover .img-overlay { /*makes overlay color and icon visible*/
+    opacity: 1;
+}
+.img-hover-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }
 
-h3 {
+.nft-title {
     color: white;
     padding-top: 1.2rem;
     margin: 0;
 }
+.nft-title:hover {
+    cursor: pointer;
+    color: var(--cyan);
+}
+
 
 .nft-description-text {
     font-size: 18px;
@@ -119,16 +141,16 @@ hr {
     color: white;
     font-weight: 400;
 }
+.credits > p > span:hover {
+    cursor: pointer;
+    color: var(--cyan);
+}
 
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    position: fixed;
-    left: 0;
+    position: relative;
     bottom: 0;
-    width: 100%;
-
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .attribution { 
@@ -137,3 +159,9 @@ footer {
     color: white;
 }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+@media (max-width:375px) {
+    .card-container {
+        max-width: 80%;
+    }
+}
